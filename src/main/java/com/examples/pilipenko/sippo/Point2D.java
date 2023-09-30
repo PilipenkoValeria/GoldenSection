@@ -36,13 +36,14 @@ public class Point2D {
 
     public Point2D (String coordinates) {
         try {
-            int startPosition = coordinates.indexOf("(");
-            int endPosition = coordinates.indexOf(")");
-            int middlePosition = coordinates.indexOf(";");
-            this.x = Double.parseDouble(coordinates.substring(startPosition + 1, middlePosition));
-            this.y = Double.parseDouble(coordinates.substring(middlePosition + 1, endPosition));
-        }catch (Exception e){
-            throw new  IllegalArgumentException("Wrong input");
+            int start = coordinates.indexOf("(");
+            int end = coordinates.indexOf(")");
+            int middle = coordinates.indexOf(";");
+            this.x = Double.parseDouble(coordinates.substring(start + 1, middle));
+            this.y = Double.parseDouble(coordinates.substring(middle + 1, end));
+        }
+        catch (Exception e) {
+            throw new  IllegalArgumentException("Неверные данные");
         }
 
     }
