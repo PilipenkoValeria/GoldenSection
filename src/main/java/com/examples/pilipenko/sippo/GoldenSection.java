@@ -5,7 +5,7 @@ import java.util.function.Function;
 
 
 public class GoldenSection {
-    final private double alpha = (Math.sqrt(5)-1) / 2;
+    final private double tau = (1 + Math.sqrt(5)) / 2;
 
     public Point2D findExtremumMin(String fileName, Function<Double, Double> function) {
         try (FileReader fr = new FileReader(fileName); BufferedReader br = new BufferedReader(fr)) {
@@ -33,9 +33,8 @@ public class GoldenSection {
                 left = buffer;
             }
             do {
-                double c = right.getX();
-                x1 = right.getX() - (right.getX() - left.getX()) * alpha;
-                x2 = left.getX() + (right.getX() - left.getX()) * alpha;
+                x1 = right.getX() - (right.getX() - left.getX()) * tau;
+                x2 = left.getX() + (right.getX() - left.getX()) * tau;
 
                 point1.setX(x1);
                 point1.setY(function.apply(x1));
